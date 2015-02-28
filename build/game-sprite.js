@@ -1,12 +1,12 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 /*
- * Dom - Sprite
- * Sprite animation for dom
+ * Game Sprite
  *
  * @date 2015-02-28
  * @author niko
  *
  */
+
 var Transform = require('./mod/sprite-transform'),
     Timeline = require('./mod/sprite-timeline');
 
@@ -741,6 +741,8 @@ U.method(Sprite, {
     }
 });
 
+Sprite.Timeline = Timeline;
+Sprite.Transform = Transform;
 window.Sprite = Sprite;
 
 },{"./mod/sprite-animation":2,"./mod/sprite-render":4,"./mod/sprite-timeline":5,"./mod/sprite-transform":6,"./mod/sprite-util":7}],2:[function(require,module,exports){

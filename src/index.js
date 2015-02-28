@@ -1,11 +1,11 @@
 /*
- * Dom - Sprite
- * Sprite animation for dom
+ * Game Sprite
  *
  * @date 2015-02-28
  * @author niko
  *
  */
+
 var Transform = require('./mod/sprite-transform'),
     Timeline = require('./mod/sprite-timeline');
 
@@ -740,4 +740,6 @@ U.method(Sprite, {
     }
 });
 
+Sprite.Timeline = Timeline;
+Sprite.Transform = Transform;
 window.Sprite = Sprite;
