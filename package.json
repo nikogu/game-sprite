@@ -1,0 +1,10 @@
+{
+  "name": "dom-sprite",
+  "version": "0.0.1",
+  "homepage": "",
+  "url": "",
+  "devDependencies": {
+    "browserify": "9.0.3",
+    "gulp": "^3.8.11"
+  }
+}

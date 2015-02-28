@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>DOM Sprite</title>
+</head>
+<body>
+<style type="text/css">
+    #dom-wrap {
+        border: 1px solid #dddddd;
+        display: block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+</style>
+<div id="dom-wrap">
+    <div id="dom-sprite"></div>
+</div>
+<script src="../build/game-sprite.min.js"></script>
+<script>
+
+        var sister = new Sprite({
+            ctx: document.getElementById('dom-sprite'),
+            res: 'http://gtms04.alicdn.com/tps/i4/TB11wd2FVXXXXcbXXXXo12dMVXX-6555-285.png',
+            count: 23,
+            width: 285,
+            height: 285,
+            row: 1,
+            spf: 50,
+            anim: {
+                'runRight': [15, 22],
+                'runLeft': [7, 14],
+                'static': [1],
+                'jump': [0],
+                'jumpFalling': [1, 6],
+                'falling': [2, 6]
+            },
+            //custom property
+            status: 'static'
+        });
+
+        //set transform property
+        sister.set({
+            'scale': 0.5,
+            'y': 200
+        });
+
+        //run!
+        sister.run(100, ['runLeft', 'jump', 'runLeft'], -1, function() {
+            console.log(sister.cAnim.name);
+            console.log(sister.cAnim.getName());
+        });
+
+</script>
+</body>
+</html>
