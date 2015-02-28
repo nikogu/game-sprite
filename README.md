@@ -1,8 +1,8 @@
- # Game Sprite
+# Game Sprite
 
 The professional library for javascript sprite.
 
- ### feature
+### feature
 
 - easy to use
 
@@ -15,7 +15,7 @@ The professional library for javascript sprite.
     - canvas support
     - svg [snapsvg.js](http://snapsvg.io/) support
 
- ### How to use
+### How to use
 
 
 
