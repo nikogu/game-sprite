@@ -176,22 +176,22 @@ But in some condition, you need play and manual updating.
 **stop** stop the sprite's timer
 
 ## Property
-**cFrame** current frame
+**cFrame**: current frame
 
-**cAnim** current animation object
+**cAnim**: current animation object
 - getName() get animation's name
 
-**rowNum**
+**rowNum**:
 
-**row**
+**row**:
 
-**ctx** render context
+**ctx**: render context
 
-**view** the view of sprite
+**view**: the view of sprite
 
 ## Using TexturePacker
 [TexturePacker](http://www.codeandweb.com/texturepacker/)
-`JSON HASH`
+`JSON HASH Type`
 
 ### 1: Download TexturePacker
 
