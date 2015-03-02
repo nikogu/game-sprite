@@ -2285,6 +2285,8 @@ module.exports = Transform;
  *
  */
 
+var toString = Object.prototype.toString;
+
 var Util = {
     method: function (o, fns) {
         var p = o.prototype;
@@ -2300,19 +2302,19 @@ var Util = {
         }
     },
     isObject: function (n) {
-        return Object.prototype.toString.call(n) === '[object Object]';
+        return toString.call(n) === '[object Object]';
     },
     isArray: function (n) {
-        return Object.prototype.toString.call(n) === '[object Array]';
+        return toString.call(n) === '[object Array]';
     },
     isNumber: function (n) {
-        return Object.prototype.toString.call(n) === '[object Number]';
+        return toString.call(n) === '[object Number]';
     },
     isString: function (n) {
-        return Object.prototype.toString.call(n) === '[object String]';
+        return toString.call(n) === '[object String]';
     },
     isFunction: function (n) {
-        return Object.prototype.toString.call(n) === '[object Function]';
+        return toString.call(n) === '[object Function]';
     },
     clone: function (o) {
         var _o = {};
@@ -2336,11 +2338,6 @@ var Util = {
         }
 
         return _o;
-    },
-    bind: function (fn, context) {
-        return function () {
-            fn.apply(context, arguments);
-        }
     }
 };
 
