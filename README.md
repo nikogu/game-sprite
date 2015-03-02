@@ -1,10 +1,10 @@
 # Game Sprite
 
-The professional library for javascript sprite.
+The professional library for sprite of javascript.
 
 [HOME PAGE](http://nikogu.github.io/game-sprite)
 
-## feature
+## Feature
 
 - Easy to use
 
@@ -17,6 +17,14 @@ The professional library for javascript sprite.
     - CANVAS Support
     - SVG [snapsvg.js](http://snapsvg.io/) Support
 
+#Compatibility
+
+| Render Context  |      IE      |  Chrome |  Safari | FireFox |
+|-----------------|:------------:|--------:|--------:|--------:|
+|       DOM       | 6+(no transform support)  9+(all functional)     |    *    |    *    |    *    |
+|     CANVAS      |      9+      |    *    |    *    |    *    |
+| SVG(snapsvg.js) |      9+      |    *    |    *    |    *    |
+
 ## How to use
 
 ### 1: Import
@@ -28,7 +36,7 @@ The professional library for javascript sprite.
 
 ### 2：Setting render context
 
-GameSprite Support Canvas、DOM、SnapSVG, you need tell GameSprite which one your need.
+GameSprite Support Canvas、DOM、SnapSVG, you need tell GameSprite which one you need.
     
     //DOM: the dom which as sprite's container
     //Snap: Snap paper
@@ -42,13 +50,13 @@ GameSprite Support Canvas、DOM、SnapSVG, you need tell GameSprite which one yo
 GameSprite Support 2 kind of data resource
 
 - The image that every frames is in same size, ex：[image](http://gtms04.alicdn.com/tps/i4/TB11wd2FVXXXXcbXXXXo12dMVXX-6555-285.png)
-- TexturePacker Tool, ex：[image](http://gtms03.alicdn.com/tps/i3/TB1nLrDFVXXXXaNXFXXrhejFFXX-1924-1022.png) [data](http://gitlab.alibaba-inc.com/gama/sprite/blob/master/demo/res/data.js)
+- TexturePacker Tool, ex：[image](http://gtms03.alicdn.com/tps/i3/TB1nLrDFVXXXXaNXFXXrhejFFXX-1924-1022.png) [data](https://github.com/nikogu/game-sprite/blob/master/demo/res/data.js)
 
 We recommend use the [TexturePacker](https://www.codeandweb.com/texturepacker) Tool.
 
 ### 4: Creating Sprite Instance
 
-#### no TexturePacker tool
+#### No TexturePacker tool
 	var sister = new Sprite({
 	    //dom render example
 	    //render context
@@ -81,7 +89,7 @@ We recommend use the [TexturePacker](https://www.codeandweb.com/texturepacker) T
 		}
 	});
 	
-#### using TexturePacker tool
+#### Using TexturePacker tool
 
 	var girl = new Sprite({
         ctx: document.getElementById('dom-sprite'),
@@ -116,7 +124,6 @@ For example, if you have 5 picture for running animation, before you drag them i
 
 if you have the timer ticker
 
-    //使用play方法，不开启自带定时器
     //you can use play, ‘play’ method do not running a timer auto
     sister.play('run-left');
 
@@ -262,4 +269,5 @@ if you only has one frame, you can name 'girl-run.png',  not necessary 'girl-run
 
     }
 
-## have fun...
+## ISSUE
+If you have any questions with GameSprite, [Just open a issue](https://github.com/nikogu/game-sprite/issues).
