@@ -270,4 +270,4 @@ if you only has one frame, you can name 'girl-run.png',  not necessary 'girl-run
     }
 
 ## ISSUE
-If you have any questions with GameSprite, [Just open a issue](https://github.com/nikogu/game-sprite/issues).
+If you have any questions with GameSprite, [Just open an issue](https://github.com/nikogu/game-sprite/issues).
