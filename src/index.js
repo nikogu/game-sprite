@@ -742,4 +742,7 @@ U.method(Sprite, {
 
 Sprite.Timeline = Timeline;
 Sprite.Transform = Transform;
-window.Sprite = Sprite;
+if ( window ) {
+    window.Sprite = Sprite;
+}
+module.exports = Sprite;

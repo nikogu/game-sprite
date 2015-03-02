@@ -21,7 +21,8 @@ var objectToString = Object.prototype.toString,
     PI = math.PI,
     E = "";
 
-//Snap的矩阵运算处理
+// Snap Matrix
+// https://github.com/adobe-webplatform/Snap.svg/blob/master/src/matrix.js
 function Matrix(a, b, c, d, e, f) {
     if (b == null && objectToString.call(a) == "[object SVGMatrix]") {
         this.a = a.a;
