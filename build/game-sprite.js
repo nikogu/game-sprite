@@ -743,7 +743,10 @@ U.method(Sprite, {
 
 Sprite.Timeline = Timeline;
 Sprite.Transform = Transform;
-window.Sprite = Sprite;
+if ( window ) {
+    window.Sprite = Sprite;
+}
+module.exports = Sprite;
 
 },{"./mod/sprite-animation":2,"./mod/sprite-render":4,"./mod/sprite-timeline":5,"./mod/sprite-transform":6,"./mod/sprite-util":7}],2:[function(require,module,exports){
 /*
@@ -868,7 +871,8 @@ var objectToString = Object.prototype.toString,
     PI = math.PI,
     E = "";
 
-//Snap的矩阵运算处理
+// Snap Matrix
+// https://github.com/adobe-webplatform/Snap.svg/blob/master/src/matrix.js
 function Matrix(a, b, c, d, e, f) {
     if (b == null && objectToString.call(a) == "[object SVGMatrix]") {
         this.a = a.a;
@@ -1219,47 +1223,33 @@ var isSupportTransform3D = isSupport('transformOriginZ');
  * @return {String} 渲染类型
  */
 function getRenderType() {
-    var o = this.ctx;
 
-    if (this._isTexturePicker) {
+    var o = this.ctx, result = '';
 
-        //canvas
-        if (/canvas/ig.test(toString.call(o))) {
-            return 'canvas-tp';
-            //snap & raphael
-        } else if (o.node && /svg/ig.test(toString.call(o.node))) {
-            return 'snap-tp';
-            //dom
-        } else if (o.nodeType) {
-            if (isSupportTransform) {
-                return 'dom-tp-t';
-            } else {
-                return 'dom-tp';
-            }
-        } else {
-            return '';
-        }
-
-    }
-
-    //dom
-    if (/element/ig.test(toString.call(o))) {
-        if (isSupportTransform) {
-            return 'dom-t';
-        } else {
-            return 'dom';
-        }
-        //canvas
-    } else if (/canvas/ig.test(toString.call(o))) {
-        return 'canvas';
+    //canvas
+    if (/canvas/ig.test(toString.call(o))) {
+        result = 'canvas';
         //snap & raphael
     } else if (o.node && /svg/ig.test(toString.call(o.node))) {
-        return 'snap';
-        //null
+        result = 'snap';
+        //dom
+    } else if (/element/ig.test(toString.call(o))) {
+        if (isSupportTransform) {
+            result = 'dom-t';
+        } else {
+            result = 'dom';
+        }
     } else {
-        return '';
+        result = '';
     }
-};
+
+    if (this._isTexturePicker && result) {
+        result += '-tp';
+    }
+
+    return result;
+
+}
 
 //渲染选择器
 //每个渲染器复写 render 和 update 方法
@@ -1267,8 +1257,7 @@ function getRenderType() {
 var RenderMachine = {
     //Snap渲染器
     snap: function () {
-        var s,
-            offsetX,
+        var offsetX,
             offsetY,
             cp;
 
@@ -1299,13 +1288,10 @@ var RenderMachine = {
         };
     },
     'snap-tp': function () {
-        var s,
-            pos,
+        var pos,
             id,
             cp,
-            cpStr,
-            g = document.getElementById,
-            body = document.body;
+            cpStr;
 
         function setPos() {
 
@@ -1356,7 +1342,7 @@ var RenderMachine = {
             offsetX = -((this.cFrame % this.rowNum) * this.width);
             offsetY = -(Math.floor(this.cFrame / this.rowNum) * this.height);
             this.view.style.backgroundPosition = offsetX + 'px ' + offsetY + 'px';
-        };
+        }
 
         this._render = function () {
             this.view = document.createElement('div');
@@ -1404,7 +1390,7 @@ var RenderMachine = {
             offsetY = -(Math.floor(this.cFrame / this.rowNum) * this.height);
 
             _set();
-        };
+        }
 
         this._render = function () {
             img = new Image();
@@ -1473,7 +1459,7 @@ var RenderMachine = {
             setPos.call(this);
         };
     },
-    'dom-tp-t': function () {
+    'dom-t-tp': function () {
 
         var s,
             img,
