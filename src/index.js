@@ -1,11 +1,11 @@
-/*
+/*!
  * Game Sprite
  *
+ * @url http://nikogu.github.io/game-sprite/
  * @date 2015-02-28
  * @author niko
  *
  */
-
 var Transform = require('./mod/sprite-transform'),
     Timeline = require('./mod/sprite-timeline');
 

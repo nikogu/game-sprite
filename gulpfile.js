@@ -15,7 +15,9 @@ gulp.task('default', function() {
                 if (err) throw err;
                 console.log('Bundle!');
                 gulp.src('build/game-sprite.js').
-                    pipe(uglify()).
+                    pipe(uglify({
+                        preserveComments: 'some'
+                    })).
                     pipe(rename('game-sprite.min.js')).
                     pipe(gulp.dest('build'));
             });
